@@ -6,6 +6,8 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores.faiss import FAISS
 
+#  OpenAI API key
+OPENAI_API_KEY = "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"
 
 def ingest_docs():
     """Get documents from web pages."""
@@ -16,7 +18,7 @@ def ingest_docs():
         chunk_overlap=200,
     )
     documents = text_splitter.split_documents(raw_documents)
-    embeddings = OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
     vectorstore = FAISS.from_documents(documents, embeddings)
 
     # Save vectorstore
