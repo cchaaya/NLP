@@ -10,6 +10,7 @@ from langchain.chains.question_answering import load_qa_chain
 from typing import Any, Dict, List
 from langchain.callbacks.base import AsyncCallbackHandler
 from schemas import ChatResponse
+from pydantic import BaseModel, validator
 
 #  OpenAI API key
 OPENAI_API_KEY = "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"
