@@ -1,30 +1,30 @@
-"""Load html from files, clean up, split, ingest into Weaviate."""
-import pickle
+# """Load html from files, clean up, split, ingest into Weaviate."""
+# import pickle
 
-from langchain.document_loaders import ReadTheDocsLoader
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores.faiss import FAISS
+# from langchain.document_loaders import ReadTheDocsLoader
+# from langchain.embeddings import OpenAIEmbeddings
+# from langchain.text_splitter import RecursiveCharacterTextSplitter
+# from langchain.vectorstores.faiss import FAISS
 
-#  OpenAI API key
-OPENAI_API_KEY = "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"
+# #  OpenAI API key
+# OPENAI_API_KEY = "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"
 
-def ingest_docs():
-    """Get documents from web pages."""
-    loader = ReadTheDocsLoader("langchain.readthedocs.io/en/latest/")
-    raw_documents = loader.load()
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,
-        chunk_overlap=200,
-    )
-    documents = text_splitter.split_documents(raw_documents)
-    embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
-    vectorstore = FAISS.from_documents(documents, embeddings)
+# def ingest_docs():
+#     """Get documents from web pages."""
+#     loader = ReadTheDocsLoader("langchain.readthedocs.io/en/latest/")
+#     raw_documents = loader.load()
+#     text_splitter = RecursiveCharacterTextSplitter(
+#         chunk_size=1000,
+#         chunk_overlap=200,
+#     )
+#     documents = text_splitter.split_documents(raw_documents)
+#     embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+#     vectorstore = FAISS.from_documents(documents, embeddings)
 
-    # Save vectorstore
-    with open("vectorstore.pkl", "wb") as f:
-        pickle.dump(vectorstore, f)
+#     # Save vectorstore
+#     with open("vectorstore.pkl", "wb") as f:
+#         pickle.dump(vectorstore, f)
 
 
-if __name__ == "__main__":
-    ingest_docs()
+# if __name__ == "__main__":
+#     ingest_docs()
