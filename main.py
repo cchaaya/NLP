@@ -5,6 +5,7 @@ from langchain.document_loaders import ReadTheDocsLoader
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores.faiss import FAISS
+from langchain.vectorstores import Chroma
 
 #  OpenAI API key
 OPENAI_API_KEY = "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"
