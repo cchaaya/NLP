@@ -9,7 +9,7 @@ from langchain.vectorstores import Chroma
 
 #  OpenAI API key
 OPENAI_API_KEY = "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"
-
+persist_directory = 'docs/chroma/'
 
 def ingest_docs():
     """Get documents from web pages."""
