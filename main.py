@@ -28,9 +28,9 @@ def ingest_docs():
     
     #vectorstore = FAISS.from_documents(documents, embeddings)
 
-    # Save vectorstore
-    with open("vectorstore.pkl", "wb") as f:
-        pickle.dump(vectorstore, f)
+    # # Save vectorstore
+    # with open("vectorstore.pkl", "wb") as f:
+    #     pickle.dump(vectorstore, f)
 
 
 if __name__ == "__main__":
