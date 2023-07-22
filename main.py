@@ -55,7 +55,7 @@ from fastapi.templating import Jinja2Templates
 from langchain.vectorstores import VectorStore
 
 from callback import QuestionGenCallbackHandler, StreamingLLMCallbackHandler
-from query_data import get_chain
+#from query_data import get_chain
 from schemas import ChatResponse
 
 app = FastAPI()
