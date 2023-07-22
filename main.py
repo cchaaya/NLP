@@ -23,12 +23,15 @@ def ingest_docs():
     print("Documents:", documents)
     embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
    
+    vectordb = Chroma.from_documents(
+    documents=documents,
+    embedding=embeddings,
+    persist_directory=persist_directory
+    # vectorstore = FAISS.from_documents(documents, embeddings)
 
-    vectorstore = FAISS.from_documents(documents, embeddings)
-
-    # Save vectorstore
-    with open("vectorstore.pkl", "wb") as f:
-        pickle.dump(vectorstore, f)
+    # # Save vectorstore
+    # with open("vectorstore.pkl", "wb") as f:
+    #     pickle.dump(vectorstore, f)
 
 
 if __name__ == "__main__":
